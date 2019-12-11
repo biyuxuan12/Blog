@@ -4,14 +4,50 @@
 
 ### 工具准备
 
-一台联网的mac 默认你电脑上装了brew 没装的话下面两个任务自己想办法完成
-给它装上java 不想指定版本，问就是1.8 要把环境都陪好哦～有很多攻略可以查 
-`brew cask install java` 
-给它装上gradle 不想解释这是啥 装就完事了
-`brew install gradle`
-装一个idea 
-https://www.jetbrains.com 这是官网 自己下载 免费版的就ok
-齐活了大概
+*  一台联网的mac 默认你电脑上装了brew 没装的话下面两个任务自己想办法完成
+*  给它装上java 不想指定版本，问就是1.8 要把环境都陪好哦～有很多攻略可以查 
+*  `brew cask install java` 
+*  给它装上gradle 不想解释这是啥 装就完事了
+*  `brew install gradle`
+*  装一个idea 
+*  https://www.jetbrains.com 这是官网 自己下载 免费版的就ok
+*  装spirngboot
+```
+brew tap pivotal/tap
+brew install springboot
+```
+*  齐活了大概
 
 ### 开始干活
-第一步 新建一个项目 打开你的bash 或者zsh 或者任何控制台
+* 第一步 新建一个项目 打开你的bash 或者zsh 或者任何控制台新建一个项目
+`spring init -dweb,thymeleaf,websocket --build gradle`
+
+* 会下载一个叫demo的zip包
+* 解压它 你得到了一个demo文件夹 里面就是已经准备好的项目结构
+* 看不懂没关系 我也看不懂
+* 用你的idea打开这个demo文件夹
+* 在控制台（demo目录下）下输入
+* `gradle build`
+* 你的gradle正在帮你搞定所有的依赖
+* 找到src/java/com.example.demo文件夹 在这里新建一个Welocme 的JAVA类
+贴上如下代码
+```
+package com.example.demo.welcomeController;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class Welcome {
+
+    @GetMapping("/")
+    public String welcome(String echostring) {
+
+        System.out.println(echostring);
+     return (echostring);
+    }
+}
+```
+* 好的 一个基础版的api完成了
