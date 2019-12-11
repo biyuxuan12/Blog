@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+## 如何帮助一个没碰过后台的人写一个api
 
-You can use the [editor on GitHub](https://github.com/biyuxuan12/Blog/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+昨天试着帮助一个同学写一个api，发现网上的教程对于一个没写过servlet的人来说真的很不友好。本来想收集一篇从环境配置开始讲起的教程，实在是太难了。 一开始以为萌新就别用springboot框架，原生java调一下servlet，写两个post函数就齐活了，后来想到还要搞tomcat，数据库说不定还要自己去下cdbc的jar包。而这一整套流程很多实体书上都有，但是网上的教程就会跳过很多步骤。所以打算写一个傻瓜版的api撰写教程，怎么偷懒怎么来的那种。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 工具准备
 
-### Markdown
+一台联网的mac 默认你电脑上装了brew 没装的话下面两个任务自己想办法完成
+给它装上java 不想指定版本，问就是1.8 要把环境都陪好哦～有很多攻略可以查 
+`brew cask install java` 
+给它装上gradle 不想解释这是啥 装就完事了
+`brew install gradle`
+装一个idea 
+https://www.jetbrains.com 这是官网 自己下载 免费版的就ok
+齐活了大概
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/biyuxuan12/Blog/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### 开始干活
+第一步 新建一个项目 打开你的bash 或者zsh 或者任何控制台
