@@ -53,11 +53,13 @@ public class Welcome {
 ```
 * 好的 一个基础版的api完成了
 * 我们很开心的用 gradle bootRun运行起这个网站，在浏览器输入以下网址访问
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/741575975916_.pic.jpg)
 * 用url的方式把我们想要传递的参数穿给了后台再传回来
 *然后删掉我们刚刚写的类。
 ### 给我们的后台加上json的读取
 * 当然光有后台连教程都进行不下去，我们先写一个尽可能精简的前端。
 * 在这个位置新建好我们前台文件，这个位置很重要
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/indexhtmlloc.png)
 
 * 然后前台的代码如下：
 ```
@@ -102,18 +104,40 @@ function post() {
 </html>
 ```
 
-* 前台html已经写好了，在还是刚刚的位置，新建一个类把我们的访问指引到刚刚写好的Html页面。
+* 前台html已经写好了，在还是刚刚的位置，
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/indexcontrollerloc.png)
+新建一个类把我们的访问指引到刚刚写好的Html页面。
+```
+package com.example.demo;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class IndexController {
+    @GetMapping("/")
+    public String welcome() {
+        return "index";
+    }
+}
+
+```
 * 前端完成，继续写api。这一次，我们要引入一个起步依赖用来解读json文件。
-* 在如图位置 加上这行代码
+* 在如图位置 
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/gradle.png)
+加上这行代码
 `implementation("com.alibaba:fastjson:1.2.61")`
 * 在控制台输入
 `gradle build`
 * 让gradle帮你把起步依赖下载下来，
 * 点一下idea右上角的gradle，再点一下刷新按钮告诉迟钝的idea这个依赖你已经有了，别等会报红了
 
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/gradlefresh.png)
 * ok，准备工作搞定，开始干正事。
-* 这个位置，
+* 这个位置
+
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/apicontrollerloc.png)
+
 * 代码如下：
 ```
 package com.example.demo;
@@ -135,5 +159,8 @@ public class ApiController {
 ```
 恭喜
 现在再控制台输入gradle bootRun运行起你的网站，
-访问127.0.0.1:8080 ,输入提交,你能在你网站后台可控制台看见这个。
+访问127.0.0.1:8080 ,输入提交
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/frontendinput.png)
+你能在你网站后台可控制台看见这个。
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
 一次简单的json数据从前台到后台传递完成了。
