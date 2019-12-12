@@ -123,7 +123,7 @@ public class IndexController {
 
 ```
 * 前端完成，继续写api。这一次，我们要引入一个起步依赖用来解读json文件。
-* 在如图位置 
+* 在如图位置 gradle.builde文件中
 ![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/gradle.png)
 加上这行代码
 `implementation("com.alibaba:fastjson:1.2.61")`
