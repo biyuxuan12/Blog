@@ -2,21 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43a1c6fe-1ac7-44ee-9f3c-2798581b2bdb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/601575974673_.pic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/621575974715_.pic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/741575975916_.pic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/apicontrollerloc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/frontendinput.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/gradle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/gradlefresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/indexcontrollerloc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/indexhtmlloc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/jsonresult.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
