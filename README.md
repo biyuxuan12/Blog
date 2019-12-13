@@ -169,7 +169,7 @@ public class ApiController {
 * 自己写的api，吃什么参数有什么功能自己肯定清清楚楚，如果是给比人用那这个黑盒的说明就很闹心。
 * 感谢swagger ，我们加一个文件就可以自动生成一个文档页面
 * 第一步 老规矩加起步依赖。这个位置，
-![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/swaggerdependences.png)
 * 加上：
 
 ```
@@ -180,7 +180,7 @@ implementation 'io.springfox:springfox-swagger-ui:2.7.0'
 
 * 依赖包引用进来了，再告诉你的springboot我要用swagger啦，你帮我把他跑起来
 * 这个位置新建一个类，
-![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/swaggerdependences.png)
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/swaggerconfigloc.png)
 * 贴上如下代码
 ```
 package com.example.demo;
@@ -260,6 +260,6 @@ http://localhost:8080/swagger-ui.html
 第一个接口其实是你首页的controller，方法也理所应当的是get，我们应该给首页加个
 注解在这里隐藏它，此处略过。第二个接口就是我们的API啦，点开它，
 你可以在这里直接写上你想发给api的数据，然后点一下tryout就发给后台了。还方便手动测试。
-![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/apiuiresult.png)
 后台当然也会有反馈
 ![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/backgroundresult.png)
