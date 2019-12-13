@@ -31,7 +31,7 @@ brew install springboot
 * 你的gradle正在帮你搞定所有的依赖
 * 找到src/java/com.example.demo文件夹 在这里新建一个Welocme 的JAVA类
 ![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/601575974673_.pic.jpg)
-<img src="https://github.com/biyuxuan12/Blog/blob/master/image/601575974673_.pic.jpg"  alt="上海鲜花港 - 郁金香" />
+
 贴上如下代码
 ```
 package com.example.demo.welcomeController;
