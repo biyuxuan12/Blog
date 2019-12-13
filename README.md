@@ -157,10 +157,108 @@ public class ApiController {
 }
 
 ```
-恭喜
-现在再控制台输入gradle bootRun运行起你的网站，
-访问127.0.0.1:8080 ,输入提交
+* 恭喜
+* 现在再控制台输入gradle bootRun运行起你的网站，
+* 访问127.0.0.1:8080 ,输入提交
 ![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/frontendinput.png)
-你能在你网站后台可控制台看见这个。
+* 你能在你网站后台可控制台看见这个。
 ![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
-一次简单的json数据从前台到后台传递完成了。
+* 一次简单的json数据从前台到后台传递完成了。
+
+### 游戏继续，给你的api迅速搞起一个接口文档
+* 自己写的api，吃什么参数有什么功能自己肯定清清楚楚，如果是给比人用那这个黑盒的说明就很闹心。
+* 感谢swagger ，我们加一个文件就可以自动生成一个文档页面
+* 第一步 老规矩加起步依赖。这个位置，
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
+* 加上：
+
+```
+implementation 'io.springfox:springfox-swagger2:2.7.0'
+implementation 'io.springfox:springfox-swagger-ui:2.7.0'
+```
+* 加上了gradle build 一下，再刷新一下idea的gradle
+
+* 依赖包引用进来了，再告诉你的springboot我要用swagger啦，你帮我把他跑起来
+* 这个位置新建一个类，
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
+* 贴上如下代码
+```
+package com.example.demo;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+    @Bean
+    public Docket createRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .pathMapping("/")
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("com.example.demo")) // 你的apicontroller所在的包
+                .build();
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder().title("嗝～")
+                .description("一个简单粗暴的接口")
+                .termsOfServiceUrl("https://github.com/biyuxuan12/Blog")
+                .contact(new Contact("气朗天清", "https://github.com/biyuxuan12/Blog","969742105@qq.com" ))
+                .version("1.0")
+                .build();
+    }
+
+}
+```
+* 这个类会告诉你的springboot要运行swagger,但是你还需要简单的修改你的apiController让swagger会认得出这个api
+* 把apiController改成如下：
+```
+package com.example.demo;
+
+
+import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping(value="/api")
+@Api(description = "这个api传入一个json对象，对对象格式暂无要求")
+public class ApiController {
+
+
+    @RequestMapping(method = RequestMethod.POST)
+    @ApiOperation(
+            value = "Post a json to this api",
+            notes = "传一个json进来就完事了，对json没有任何具体要求",
+            response = String.class,
+            tags = {"这个tag会显示在ui上"})
+    public String welcome(@RequestBody JSONObject jsonParam) {
+        System.out.println(jsonParam.toJSONString());
+     return (jsonParam.toJSONString());
+    }
+}
+
+```
+
+* 恭喜，你要的文档功能加好了 gradle bootRun一下
+首页和以前没有区别 但是当你访问
+http://localhost:8080/swagger-ui.html
+你会看到
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
+第一个接口其实是你首页的controller，方法也理所应当的是get，我们应该给首页加个
+注解在这里隐藏它，此处略过。第二个接口就是我们的API啦，点开它，
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
+你可以在这里直接写上你想发给api的数据，然后点一下tryout就发给后台了。还方便手动测试。
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
