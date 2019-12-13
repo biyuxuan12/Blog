@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+    <script>
+
+function post() {
+    var name=document.getElementById("imgname").value;
+    var size=document.getElementById("imgsize").value;
+    var data1={
+        name:name,
+        size:size
+    };
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:8080/api",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data1),
+        dataType: "json",
+        success: function (message) {
+            console.log(message);
+        },
+        error: function (message) {
+            $("#request-process-patent").html("提交数据失败！");
+        }
+    });
+
+}
+    </script>
+</head>
+<body>
+图片名：<input type="text" name="image" id="imgname">
+尺寸：<input type="text" name="size" id="imgsize">
+<button type="button" onclick="post()">提交</button>
+
+</body>
+</html>
