@@ -180,7 +180,7 @@ implementation 'io.springfox:springfox-swagger-ui:2.7.0'
 
 * 依赖包引用进来了，再告诉你的springboot我要用swagger啦，你帮我把他跑起来
 * 这个位置新建一个类，
-![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/swaggerdependences.png)
 * 贴上如下代码
 ```
 package com.example.demo;
@@ -256,9 +256,10 @@ public class ApiController {
 首页和以前没有区别 但是当你访问
 http://localhost:8080/swagger-ui.html
 你会看到
-![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/uishow.png)
 第一个接口其实是你首页的controller，方法也理所应当的是get，我们应该给首页加个
 注解在这里隐藏它，此处略过。第二个接口就是我们的API啦，点开它，
-![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
 你可以在这里直接写上你想发给api的数据，然后点一下tryout就发给后台了。还方便手动测试。
 ![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/jsonresult.png)
+后台当然也会有反馈
+![Alt text](https://github.com/biyuxuan12/Blog/blob/master/image/backgroundresult.png)
